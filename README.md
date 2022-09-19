@@ -1,4 +1,4 @@
-# SkillVertexMajor
+# SkillVertexMajorProject
 Major Project for skillvertex Internship.
 
 Website for a super market with different categories and sorting inside those categories by price and brand name.
