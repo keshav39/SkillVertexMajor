@@ -1,14 +1,37 @@
-<!-- Header -->
-<nav class="sticky-top">
-    <ul>
-        <li><a href="login.php" style="font-size: 20px; font-weight: bolder;">BLOG</a></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">All Posts</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <!-- <input type="text" class="search-box" placeholder="Search" /> -->
-        <li style="float: right;"><a href="register.php">Sign Up</a></li>
-        <li style="float: right;"><a href="login.php">Login</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg" style="background: radial-gradient(circle, rgba(63,251,208,0.8519782913165266) 0%, rgba(67,252,91,0.8715861344537815) 49%, rgba(94,70,252,0.8211659663865546) 100%);">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.php">Super Market</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Staples</a></li>
+                        <li><a class="dropdown-item" href="#">Beverages</a></li>
+                        <li><a class="dropdown-item" href="#">Snacks</a></li>
+                        <li><a class="dropdown-item" href="#">Kitchen Essentials</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Popular</a></li>
+                    </ul>
+                </div>
+            </ul>
+            <div class="justify-content-end">
+                <a href="./login.php" class="btn btn-primary me-3">Login</a>
+                <a href="./register.php" class="btn btn-success me-3">Signup</a>
+            </div>
+        </div>
+    </div>
 </nav>
-<!-- End Header -->
