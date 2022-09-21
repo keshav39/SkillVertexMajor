@@ -8,23 +8,12 @@
     <title>Super-Market - Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <!-- Header -->
-    <nav class="sticky-top">
-        <ul>
-            <li><a href="login.php" style="font-size: 20px; font-weight: bolder;">BLOG</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">All Posts</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <!-- <input type="text" class="search-box" placeholder="Search" /> -->
-            <li style="float: right;"><a href="register.php">Sign Up</a></li>
-            <li style="float: right;"><a href="login.php">Login</a></li>
-        </ul>
-    </nav>
-    <!-- End Header -->
+    <?php include 'includes/login-navbar.php'; ?>
     <section class="vh-75 pb-3 pt-3" style="background-color: #eee;">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center
@@ -126,17 +115,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-2" id="Footer">
-            <p class="mt-3"> © 2020 Copyright:
-                <a class="text-dark fw-bold" href="#">Super-Market</a>
-            </p>
-        </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer End -->
+    <?php include 'includes/login-footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 
 </html>

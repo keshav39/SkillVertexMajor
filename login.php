@@ -33,85 +33,79 @@
 
 <body>
     <!-- NavBar -->
-    <?php include "includes/login-navbar.php"; ?>
+    <?php include 'includes/login-navbar.php'; ?>
 
     <!-- NavBar End -->
-
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
+    <section class="vh-75 pb-5 pt-5" style="background-color: #eee;">
+        <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center
                     h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img src="assets/img/login-bg.webp" class="img-fluid" alt="Sample image">
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form>
-                        <div class="d-flex flex-row align-items-center
-                                justify-content-center">
-                            <h1 class="text-center mb-5 me-3">Sign in</h1>
-                        </div>
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius:
+                            25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5
+                                        order-2 order-lg-1">
 
-                        <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Enter a valid email address" />
-                            <label class="form-label" for="form3Example3">Email
-                                address</label>
-                        </div>
+                                    <p class="text-center h1 fw-bold mb-5
+                                            mx-1 mx-md-4 mt-4">Login</p>
 
-                        <!-- Password input -->
-                        <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password" />
-                            <label class="form-label" for="form3Example4">Password</label>
-                        </div>
+                                    <form class="mx-1 mx-md-4">
 
-                        <div class="d-flex justify-content-between                       align-items-center">
-                            <a href="#!" class="text-body">Forgot password?</a>
-                        </div>
+                                        <div class="d-flex flex-row
+                                                align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg
+                                                    me-3 fa-fw"></i>
+                                            <div class="form-outline
+                                                    flex-fill mb-0">
+                                                <input type="email" id="form3Example3c" class="form-control" />
+                                                <label class="form-label" for="form3Example3c">Email Address</label>
+                                            </div>
+                                        </div>
 
-                        <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="button" class="btn btn-primary
-                                    btn-lg" style="padding-left: 2.5rem; padding-right:
-                                    2.5rem;">Login</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't
-                                have an account? <a href="register.php" class="link-danger">Register</a></p>
-                        </div>
+                                        <div class="d-flex flex-row
+                                                align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3
+                                                    fa-fw"></i>
+                                            <div class="form-outline
+                                                    flex-fill mb-0">
+                                                <input type="password" id="form3Example4c" class="form-control" />
+                                                <label class="form-label" for="form3Example4c">Password</label>
+                                            </div>
+                                        </div>
 
-                    </form>
+                                        <div class="d-flex
+                                                justify-content-center mx-4 mb-3
+                                                mb-lg-4">
+                                            <button type="button" class="btn
+                                                    btn-primary btn-lg">Login</button>
+                                        </div>
+                                        <div class="text-center text-lg-start mt-4 pt-2">
+                                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php" class="link-danger">Register</a></p>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="col-md-10 col-lg-6 col-xl-7
+                                        d-flex align-items-center order-1
+                                        order-lg-2">
+
+                                    <img src="assets/img/login-bg.webp" class="img-fluid mb-10" style="object-fit: cover; width: 500px; border-radius: 10px; opacity: 0.9;" alt="Sample
+                                            image">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- <div
-                class="d-flex flex-column flex-md-row text-center text-md-start
-                justify-content-between py-4 px-4 px-xl-5 bg-primary"> -->
-        <!-- Copyright -->
-        <!-- <div class="text-white mb-3 mb-md-0">
-                    Copyright © 2020. All rights reserved.
-                </div> -->
-        <!-- Copyright -->
-
-        <!-- Right -->
-        <!-- <div>
-                    <a href="#!" class="text-white me-4">
-                        <i class="fab fa-facebook-f" style="color: #fff;"></i>
-                    </a>
-                    <a href="#!" class="text-white me-4">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#!" class="text-white me-4">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="#!" class="text-white">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div> -->
-        <!-- Right -->
-
-
-        </div>
     </section>
 
-    <?php include "includes/login-footer.php"; ?>
-
+    <?php include 'includes/login-footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 
 </html>

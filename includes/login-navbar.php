@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background: radial-gradient(circle, rgba(63,251,208,0.8519782913165266) 0%, rgba(67,252,91,0.8715861344537815) 49%, rgba(94,70,252,0.8211659663865546) 100%);">
+<nav class="navbar navbar-expand-lg sticky-top" style="background: radial-gradient(circle, rgba(63,251,208,0.8519782913165266) 0%, rgba(67,252,91,0.8715861344537815) 49%, rgba(94,70,252,0.8211659663865546) 100%);">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="index.php">Super Market</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,12 +10,12 @@
                     <a class="nav-link active" aria-current="page" href="#">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link active" href="#">Link</a>
                 </li>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categories
-                    </button>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Staples</a></li>
                         <li><a class="dropdown-item" href="#">Beverages</a></li>
@@ -26,7 +26,7 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Popular</a></li>
                     </ul>
-                </div>
+                </li>
             </ul>
             <div class="justify-content-end">
                 <a href="./login.php" class="btn btn-primary me-3">Login</a>
