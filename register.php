@@ -38,7 +38,7 @@
                                             <div class="form-outline
                                                     flex-fill mb-0">
                                                 <input type="text" id="form3Example1c" class="form-control" />
-                                                <label class="form-label" for="form3Example1c">Your
+                                                <label class="form-label" for="form3Example1c" required>Your
                                                     Name</label>
                                             </div>
                                         </div>
@@ -50,8 +50,20 @@
                                             <div class="form-outline
                                                     flex-fill mb-0">
                                                 <input type="email" id="form3Example3c" class="form-control" />
-                                                <label class="form-label" for="form3Example3c">Your
+                                                <label class="form-label" for="form3Example3c" required>Your
                                                     Email</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row
+                                                align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg
+                                                    me-3 fa-fw"></i>
+                                            <div class="form-outline
+                                                    flex-fill mb-0">
+                                                <input type="tel" id="form3Example2c" class="form-control" />
+                                                <label class="form-label" for="form3Example2c" name="telephone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>Phone
+                                                    Number</label>
                                             </div>
                                         </div>
 
@@ -62,7 +74,7 @@
                                             <div class="form-outline
                                                     flex-fill mb-0">
                                                 <input type="password" id="form3Example4c" class="form-control" />
-                                                <label class="form-label" for="form3Example4c">Password</label>
+                                                <label class="form-label" for="form3Example4c" required>Password</label>
                                             </div>
                                         </div>
 
@@ -73,8 +85,20 @@
                                             <div class="form-outline
                                                     flex-fill mb-0">
                                                 <input type="password" id="form3Example4cd" class="form-control" />
-                                                <label class="form-label" for="form3Example4cd">Repeat
+                                                <label class="form-label" for="form3Example4cd" required>Repeat
                                                     your password</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row
+                                                align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg
+                                                    me-3 fa-fw"></i>
+                                            <div class="form-outline
+                                                    flex-fill mb-0">
+                                                <input type="text" id="form3Example5c" class="form-control" />
+                                                <label class="form-label" for="form3Example5c" required>Your
+                                                    Address</label>
                                             </div>
                                         </div>
 
@@ -82,7 +106,7 @@
                                                 justify-content-center mb-5">
                                             <input class="form-check-input
                                                     me-2" type="checkbox" value="" id="form2Example3c" />
-                                            <label class="form-check-label" for="form2Example3">
+                                            <label class="form-check-label" for="form2Example3" required>
                                                 I agree
                                             </label>
                                         </div>
