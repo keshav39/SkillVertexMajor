@@ -23,7 +23,7 @@
                 <img src="assets/img/home/home-car-01.webp" class="d-block w-100" alt="Carousel-Image">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/home/home-car-02.webp" class="d-block w-100" alt="Carousel-Image">
+                <img src="assets/img/home/home-car-02.webp" cløass="d-block w-100" alt="Carousel-Image">
             </div>
             <div class="carousel-item">
                 <img src="assets/img/home/home-car-03.webp" class="d-block w-100" alt="Carousel-Image">
@@ -101,7 +101,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="container">
         <h4 class="mt-5 text-center text-decoration-underline">Our Best Sellers</h4>
         <hr>
 
@@ -168,8 +169,8 @@
                 </div>
             </div>
         </div>
-
-
+    </div>
+    <div class="container">
         <h4 class="mt-5 text-center text-decoration-underline">Beverages</h4>
         <hr>
 
@@ -186,8 +187,8 @@
                 </div>
             </div>
         </div>
-
-
+    </div>
+    <div class="container">
         <h4 class="mt-5 text-center text-decoration-underline">Our Best Staples</h4>
         <hr>
 
@@ -241,9 +242,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
+    </div>
+    <div class="container">
         <h4 class="mt-5 text-center text-decoration-underline">Fruits & Vegetables</h4>
         <hr>
 
@@ -260,7 +261,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="container">
         <h4 class="mt-5 text-center text-decoration-underline">Snacks Store</h4>
         <hr>
 
@@ -298,7 +300,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="container">
         <h4 class="mt-5 text-center text-decoration-underline">Kitchen Essentials</h4>
         <hr>
 
@@ -346,9 +349,9 @@
                 </div>
             </div>
             <div class="col-sm-1"></div>
-
-
         </div>
+    </div>
+    <div class="container">
         <h4 class="text-center mt-5 text-decoration-underline">Our Partners</h4>
         <hr>
         <div class="row mt-5 mb-5">
