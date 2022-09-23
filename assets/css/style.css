@@ -72,3 +72,12 @@
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+
+#about-list li{
+  padding: 4px;
+}
+
+/* #about-team-icon a:hover i:hover{
+  border: 2px solid red;
+  color:aqua;
+} */

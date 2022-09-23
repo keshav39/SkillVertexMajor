@@ -9,9 +9,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Link</a>
-                </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categories
@@ -26,6 +24,12 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Popular</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="./about.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="./contact.php">Contact</a>
                 </li>
             </ul>
             <div class="justify-content-end">
