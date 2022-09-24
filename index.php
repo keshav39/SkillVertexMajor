@@ -35,12 +35,12 @@
     </div>
 
     <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">My Smart Basket</h4>
+        <h3 class="mt-5 text-center text-decoration-underline">My Smart Basket</h3>
         <hr>
 
         <div class="mt-5 row mb-3 justify-content-evenly align-items-center">
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -54,8 +54,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -69,8 +69,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -84,76 +84,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">Our Best Sellers</h4>
-        <hr>
-
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem;">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -171,128 +103,139 @@
         </div>
     </div>
     <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">Beverages</h4>
+        <h3 class="mt-5 text-center text-decoration-underline">Our Best Sellers</h3>
         <hr>
 
         <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-sm-6"><img src="assets/img/demo.jpg" alt=""></div>
-            <div class="col-sm-6">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-body" style="background: #d1d1d1;">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Qty</span>
+                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-body" style="background: #d1d1d1;">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Qty</span>
+                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-body" style="background: #d1d1d1;">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Qty</span>
+                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%;">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+
+                    <div class="card-body" style="background: #d1d1d1;">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Qty</span>
+                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="mt-5 text-center text-decoration-underline">Beverages</h3>
+        <hr>
+
+        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+            <div class="col-md-6"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">Our Best Staples</h4>
-        <hr>
-
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-sm-2">
-                <div class="card staples" style="width: 10rem; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card staples" style="width: 10rem; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card staples" style="width: 10rem; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card staples" style="width: 10rem; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-2">
-                <div class="card staples" style="width: 10rem; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card staples" style="width: 10rem; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">Fruits & Vegetables</h4>
-        <hr>
-
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-sm-6"><img src="assets/img/demo.jpg" alt=""></div>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
-                    <div class="col-sm-6 p-3"><img src="assets/img/demo.jpg" style="width: 252px;" alt=""></div>
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">Snacks Store</h4>
+        <h3 class="mt-5 text-center text-decoration-underline">Our Best Staples</h3>
         <hr>
 
         <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem; ">
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card staples" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem; ">
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card staples" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem; ">
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card staples" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card" style="width: 16rem; ">
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card staples" style="width: 100%; ">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Name</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card staples" style="width: 100%; ">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card staples" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
@@ -302,37 +245,94 @@
         </div>
     </div>
     <div class="container">
-        <h4 class="mt-5 text-center text-decoration-underline">Kitchen Essentials</h4>
+        <h3 class="mt-5 text-center text-decoration-underline">Fruits & Vegetables</h3>
         <hr>
 
         <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-2">
-                <div class="card kitchen" style="width: 10rem; ">
+            <div class="col-md-6"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="mt-5 text-center text-decoration-underline">Snacks Store</h3>
+        <hr>
+
+        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card kitchen" style="width: 10rem; ">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card kitchen" style="width: 10rem; ">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <div class="card kitchen" style="width: 10rem; ">
+            <div class="col-md-3 mb-4 mt-4">
+                <div class="card" style="width: 100%; ">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="mt-5 text-center text-decoration-underline">Kitchen Essentials</h3>
+        <hr>
+
+        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="card kitchen" style="width: 100%; ">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card kitchen" style="width: 100%; ">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card kitchen" style="width: 100%; ">
+                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card kitchen" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
@@ -340,22 +340,22 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
-                <div class="card kitchen" style="width: 10rem; ">
+            <div class="col-md-2 mb-4 mt-4">
+                <div class="card kitchen" style="width: 100%; ">
                     <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">Name</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-1"></div>
+            <div class="col-md-1"></div>
         </div>
     </div>
     <div class="container">
-        <h4 class="text-center mt-5 text-decoration-underline">Our Partners</h4>
+        <h3 class="text-center mt-5 text-decoration-underline">Our Partners</h3>
         <hr>
         <div class="row mt-5 mb-5">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -373,7 +373,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
