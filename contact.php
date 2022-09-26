@@ -36,11 +36,7 @@
                 <h2>CONTACT US</h2>
 
                 <form action="contact_script.php" method="POST">
-                    <?php
-                    if (isset($_GET["m"])) {
-                        echo $_GET['m'];
-                    }
-                    ?>
+
                     <div class="form-group mb-3">
                         <input type="text" name="name" class="form-control" required="required" placeholder="Name">
                     </div>
@@ -48,6 +44,11 @@
                     <div class="form-group mb-3">
                         <input type="email" name="email" class="form-control" required="required" placeholder="Email">
                     </div>
+                    <?php
+                    if (isset($_GET["m"])) {
+                        echo $_GET['m'];
+                    }
+                    ?>
 
                     <div class="form-group mb-3">
                         <textarea name="message" id="message" required="required" class="form-control" rows="5" placeholder="Your Message Here"></textarea>

@@ -51,49 +51,36 @@
                                     <p class="text-center h1 fw-bold mb-5
                                             mx-1 mx-md-4 mt-4">Login</p>
 
-                                    <form class="mx-1 mx-md-4">
+                                    <form action="login_submit.php" method="POST" class="mx-1 mx-md-4">
 
-                                        <div class="d-flex flex-row
-                                                align-items-center mb-4">
-                                            <i class="fas fa-envelope fa-lg
-                                                    me-3 fa-fw"></i>
-                                            <div class="form-outline
-                                                    flex-fill mb-0">
-                                                <input type="email" id="form3Example3c" class="form-control" />
-                                                <label class="form-label" for="form3Example3c">Email Address</label>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="email" class="form-control" placeholder="Email" name="email" required>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row
-                                                align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3
-                                                    fa-fw"></i>
-                                            <div class="form-outline
-                                                    flex-fill mb-0">
-                                                <input type="password" id="form3Example4c" class="form-control" />
-                                                <label class="form-label" for="form3Example4c">Password</label>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" class="form-control" placeholder="Password" name="password" required>
                                             </div>
                                         </div>
+                                        <?php
+                                        if (isset($_GET["error"])) {
+                                            echo $_GET['error'];
+                                        }
+                                        ?>
 
-                                        <div class="d-flex
-                                                justify-content-center mx-4 mb-3
-                                                mb-lg-4">
-                                            <button type="button" class="btn
-                                                    btn-primary btn-lg">Login</button>
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button class="btn btn-primary btn-lg">Login</button>
                                         </div>
-                                        <div class="text-center text-lg-start mt-4 pt-2">
-                                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php" class="link-danger">Register</a></p>
-                                        </div>
+
                                     </form>
-
+                                    <div class="text-center text-lg-start mt-4 pt-2">
+                                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php" class="link-danger">Register</a></p>
+                                    </div>
                                 </div>
-                                <div class="col-md-10 col-lg-6 col-xl-7
-                                        d-flex align-items-center order-1
-                                        order-lg-2">
-
-                                    <img src="assets/img/login-bg.webp" class="img-fluid mb-10" style="object-fit: cover; width: 500px; border-radius: 10px; opacity: 0.9;" alt="Sample
-                                            image">
-
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                    <img src="assets/img/login-bg.webp" class="img-fluid mb-10" style="object-fit: cover; width: 500px; border-radius: 10px; opacity: 0.9;" alt="Sample image">
                                 </div>
                             </div>
                         </div>

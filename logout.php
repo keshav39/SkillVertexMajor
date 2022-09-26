@@ -4,4 +4,5 @@ if (!isset($_SESSION['email'])) {
     header('location: login.php');
 }
 session_destroy();
-header('location: index.php');
+$m = '<script>alert("Logged Out")</script>';
+header('location: index.php?m=' . $m);

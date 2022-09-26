@@ -29,11 +29,7 @@
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
                                     <form action="signup_script.php" method="POST">
-                                        <?php
-                                        if (isset($_GET["m1"])) {
-                                            echo $_GET['m1'];
-                                        }
-                                        ?>
+
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="text" class="form-control" placeholder="Name" name="name" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" required>
@@ -44,6 +40,11 @@
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="email" class="form-control" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                                             </div>
+                                            <?php
+                                            if (isset($_GET["m1"])) {
+                                                echo $_GET['m1'];
+                                            }
+                                            ?>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
@@ -56,6 +57,11 @@
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="tel" class="form-control" placeholder="Contact Number" name="contact" maxlength="10" size="10" required>
                                             </div>
+                                            <?php
+                                            if (isset($_GET["m2"])) {
+                                                echo $_GET['m2'];
+                                            }
+                                            ?>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
