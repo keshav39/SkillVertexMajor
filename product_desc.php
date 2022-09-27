@@ -19,25 +19,25 @@
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-sm-6">
-                <img src="assets/img/demo-image-01.jpg" class="img-fluid rounded-4" alt="">
+                <img src="assets/img/products/demo-image-01.jpg" class="img-fluid rounded-4" alt="">
             </div>
             <div class="col-sm-6">
                 <h2 class="mb-4 text-decoration-underline">Vegetable</h2>
 
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, doloribus natus! Nesciunt iure rem, dignissimos ratione esse aperiam possimus numquam dolore hic alias provident quod.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptatibus ex deleniti nisi perferendis. Pariatur consectetur reiciendis praesentium ut, expedita rem iure laborum et nostrum in, reprehenderit sequi non aperiam similique explicabo corporis? Accusamus doloremque iure aliquid porro, facilis consequuntur! Soluta ab ullam exercitationem quidem officia ad expedita perspiciatis cumque.</p>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-3 m-0 p-0 me-1">
-                        <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         <div class="col-sm-2 m-0 p-0">
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+                            <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
                         </div>
                         <div class="col-sm-6"></div>
                     </div>
-                        <div class="input-group mb-3">
-                        </div>
+                    <div class="input-group mb-3">
                     </div>
+                </div>
             </div>
         </div>
     </div>
