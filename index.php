@@ -1,3 +1,7 @@
+<?php
+include 'includes/common.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

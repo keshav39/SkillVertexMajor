@@ -38,14 +38,26 @@ include 'includes/common.php';
             </ul>
             <?php
             if (isset($_SESSION["email"])) {
+                if ($_SESSION["email"] == 'supermarketadmin@admin.com') {
             ?>
-                <div class="justify-content-end">
-                    <a href="#" class="btn btn-primary me-3">Cart</a>
-                    <a href="./logout.php" class="btn btn-success me-3">Logout</a>
-                </div>
-            <?php
+                    <div class="justify-content-end">
+                        <p style="display: inline; margin-right: 10px;"><span class="fw-bold">Welcome, </span> <?php echo $_SESSION['name']; ?></p>
+                        <a href="./add_product.php" class="btn btn-danger me-3">Add Product</a>
+                        <a href="#" class="btn btn-primary me-3">Cart</a>
+                        <a href="./logout.php" class="btn btn-success me-3">Logout</a>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="justify-content-end">
+                        <p style="display: inline; margin-right: 10px;"><span class="fw-bold">Welcome, </span> <?php echo $_SESSION["name"]; ?></p>
+                        <a href="#" class="btn btn-primary me-3">Cart</a>
+                        <a href="./logout.php" class="btn btn-success me-3">Logout</a>
+                    </div>
+                <?php
+                }
             } else {
-            ?>
+                ?>
                 <div class="justify-content-end">
                     <a href="./login.php" class="btn btn-primary me-3">Login</a>
                     <a href="./register.php" class="btn btn-success me-3">Signup</a>

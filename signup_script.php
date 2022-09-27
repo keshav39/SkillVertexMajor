@@ -43,6 +43,7 @@ if ($num != 0) {
   $query = "INSERT INTO users(name, email, password, contact, city, address)VALUES('" . $name . "','" . $email . "','" . $password . "','" . $contact . "','" . $city . "','" . $address . "')";
   mysqli_query($con, $query) or die(mysqli_error($con));
   $user_id = mysqli_insert_id($con);
+  $_SESSION['name'] = $name;
   $_SESSION['email'] = $email;
   $_SESSION['user_id'] = $user_id;
   header('location: index.php');
