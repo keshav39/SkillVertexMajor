@@ -1,3 +1,12 @@
+<?php
+include 'includes/common.php';
+$name = $_GET['name'];
+$category = $_GET['category'];
+$query = "SELECT * from products WHERE name=' . $name' and category=' . $category'";
+$result = mysqli_query($con, $query) or die($mysqli_error($con));
+$row = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
