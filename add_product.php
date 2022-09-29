@@ -1,6 +1,6 @@
 <?php
 include 'includes/common.php';
-
+error_reporting(0);
 if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin.com")) {
     header('location: index.php');
 }
@@ -35,8 +35,24 @@ if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin
                                         order-2 order-lg-1">
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Product</p>
+                                    <?php
+                                    $yd = $_GET['yd'];
+                                    if ($yd == 1) {
+                                    ?>
+                                        <div class="alert" style="background: green; color: #fff;">Product added successfully</div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    $yd = $_GET['yd'];
+                                    if ($yd == 2) {
+                                    ?>
+                                        <div class="alert alert-danger" style="background: red; color: #fff;">Product not added!! error</div>
+                                    <?php
+                                    }
+                                    ?>
 
-                                    <form id="add_product_form" action="add_product_script.php" method="POST" enctype="multipart/form-data">
+                                    <form method="POST" enctype="multipart/form-data">
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
@@ -46,14 +62,14 @@ if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
-                                                <textarea type="text" name="description" id="description" form="add_product_form" class="form-control" rows="5" placeholder="Enter Product Description" required></textarea>
+                                                <textarea type="text" name="desc" class="form-control" rows="5" placeholder="Enter Product Description" required></textarea>
                                             </div>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
                                                 <label for="category" class="mb-3">Select a Category : </label>
-                                                <select class="form-control" id="category" name="category" form="add_product_form" required>
+                                                <select class="form-control" name="cate" required>
                                                     <option selected>Category...</option>
                                                     <option>Staples</option>
                                                     <option>Beverages</option>
@@ -65,9 +81,21 @@ if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
-                                                <label for="image" class="mb-3">Select a image(.jpg, .jpeg, .png) : </label><br>
-                                                <input type="hidden" name="MAX_FILE_SIZE" value="30000">
-                                                <input type="file" class="form-control-file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
+                                                <input type="number" min="100" max="10000" class="form-control" placeholder="Price" name="price" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4 form-group">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" class="form-control" placeholder="Brand" name="brand" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4 form-group">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <!-- <label for="image" class="mb-3">Select a image(.jpg, .jpeg, .png) : </label><br> -->
+                                                <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000"> -->
+                                                <input type="file" class="form-control-file" id="fileToUpload" name="fileToUpload" accept=".jpg, .jpeg, .png" required>
                                             </div>
                                         </div>
 
@@ -82,8 +110,42 @@ if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin
                                         </div>
 
                                         <?php
-                                        if (isset($_GET["m"])) {
-                                            echo $_GET['m'];
+                                        // if (isset($_GET["m"])) {
+                                        //     echo $_GET['m'];
+                                        // }
+                                        ?>
+
+                                        <?php
+                                        if (isset($_POST['add'])) {
+                                            $name = $_POST['name'];
+                                            $desc = $_POST['desc'];
+                                            $cate = $_POST['cate'];
+                                            $price = $_POST['price'];
+                                            $brand = $_POST['brand'];
+                                            $uploadOK = 1;
+                                            $target_dir = "assets/img/products/";
+                                            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+                                            $imagefiletype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                                            if ($imagefiletype != "jpg" && $imagefiletype != "jpeg" && $imagefiletype != "png") {
+                                                echo "Sorry only image formats allowed";
+                                                $uploadOK = 0;
+                                            }
+                                            if ($uploadOK == 0) {
+                                        ?>
+                                                <script>
+                                                    location.href = "add_product.php?yd=2";
+                                                </script>
+                                            <?php
+                                            } else {
+                                                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                                                    mysqli_query($con, "INSERT INTO `products`(`name`, `description`, `category`,`brand` ,`price` , `img_path`) VALUES ('$name','$desc','$cate','$brand','$price','$target_file')");
+                                                }
+                                            ?>
+                                                <script>
+                                                    location.href = "add_product.php?yd=1";
+                                                </script>
+                                        <?php
+                                            }
                                         }
                                         ?>
 

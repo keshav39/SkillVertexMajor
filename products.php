@@ -33,128 +33,35 @@ include 'includes/common.php';
         }
         ?>
         <div class="row">
-
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
+            <?php
+            $query = "SELECT id, name, img_path FROM products";
+            $result = mysqli_query($con, $query) or die($mysqli_error($con));
+            $num = mysqli_num_rows($result);
+            if ($num == 0) {
+                $error = '<script>alert("No products found")</script>';
+                header('location: products.php?error=' . $error);
+            }
+            while ($row = mysqli_fetch_array($result)) {
+            ?>
+                <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
+                    <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark fw-bold">
+                        <div class="card" style="width: 100%; ">
+                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-title"><?php echo $row['name']; ?></p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-02.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-02.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-02.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-02.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-02.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                <a href="product_desc.php" class="text-decoration-none text-dark fw-bold">
-                    <div class="card" style="width: 100%; ">
-                        <img src="assets/img/products/demo-image-02.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-title">Name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
+        <?php
+        if (isset($_GET["error"])) {
+            echo $_GET['error'];
+        }
+        ?>
     </div>
 
     <?php include 'includes/login-footer.php' ?>

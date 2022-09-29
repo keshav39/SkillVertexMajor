@@ -1,10 +1,5 @@
 <?php
 include 'includes/common.php';
-$name = $_GET['name'];
-$category = $_GET['category'];
-$query = "SELECT * from products WHERE name=' . $name' and category=' . $category'";
-$result = mysqli_query($con, $query) or die($mysqli_error($con));
-$row = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -27,28 +22,46 @@ $row = mysqli_fetch_array($result);
 
     <div class="container-fluid mt-5">
         <div class="row">
+            <?php
+            $id = $_GET['id'];
+            $query = "SELECT * FROM products WHERE id='$id'";
+            $result = mysqli_query($con, $query) or die($mysqli_error($con));
+            $num = mysqli_num_rows($result);
+            // if ($num == 0) {
+            //     $error = '<script>alert("No products found")</script>';
+            //     header('location: product_desc.php?error=' . $error);
+            // }
+            $row = mysqli_fetch_assoc($result);
+            ?>
             <div class="col-sm-6">
-                <img src="assets/img/products/demo-image-01.jpg" class="img-fluid rounded-4" alt="">
+                <img src="<?php echo $row['img_path']; ?>" class="img-fluid rounded-4" alt="">
             </div>
             <div class="col-sm-6">
-                <h2 class="mb-4 text-decoration-underline">Vegetable</h2>
+                <h2 class="mb-4 text-decoration-underline"><?php echo $row['name']; ?></h2>
 
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptatibus ex deleniti nisi perferendis. Pariatur consectetur reiciendis praesentium ut, expedita rem iure laborum et nostrum in, reprehenderit sequi non aperiam similique explicabo corporis? Accusamus doloremque iure aliquid porro, facilis consequuntur! Soluta ab ullam exercitationem quidem officia ad expedita perspiciatis cumque.</p>
+                <p class="mb-5"><?php echo $row['description']; ?></p>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3 m-0 p-0 me-1">
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="col-sm-2 m-0 p-0">
-                            <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                        </div>
-                        <div class="col-sm-6"></div>
+                        <form id="addtocart" method="POST" action="ccart.php">
+                            <div class="col-sm-3 m-0 p-0 me-1">
+                                <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
+                            </div>
+                            <div class="col-sm-2 m-0 p-0">
+                                <button form="addtocart" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </form>
                     </div>
                     <div class="input-group mb-3">
                     </div>
                 </div>
             </div>
         </div>
+        <?php
+        if (isset($_GET["error"])) {
+            echo $_GET['error'];
+        }
+        ?>
     </div>
 
     <?php include 'includes/login-footer.php' ?>

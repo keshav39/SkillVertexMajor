@@ -12,6 +12,21 @@
   margin-bottom: 100px;
 }
 
+.me-7 {
+  margin-right: 70px;
+}
+
+.me-8 {
+  margin-right: 80px;
+}
+.me-9 {
+  margin-right: 90px;
+}
+.me-10 {
+  margin-right: 100px;
+}
+
+
 #Footer {
   background: radial-gradient(
     circle,
