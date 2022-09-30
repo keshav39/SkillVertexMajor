@@ -1,5 +1,14 @@
 <?php
 include 'includes/common.php';
+$id = $_GET['id'];
+$query = "SELECT * FROM products WHERE id='$id'";
+$result = mysqli_query($con, $query) or die($mysqli_error($con));
+$num = mysqli_num_rows($result);
+// if ($num == 0) {
+//     $error = '<script>alert("No products found")</script>';
+//     header('location: product_desc.php?error=' . $error);
+// }
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +18,7 @@ include 'includes/common.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Market -Home</title>
+    <title>Super Market - <?php echo $row['name']; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/home.css">
@@ -22,24 +31,16 @@ include 'includes/common.php';
 
     <div class="container-fluid mt-5">
         <div class="row">
-            <?php
-            $id = $_GET['id'];
-            $query = "SELECT * FROM products WHERE id='$id'";
-            $result = mysqli_query($con, $query) or die($mysqli_error($con));
-            $num = mysqli_num_rows($result);
-            // if ($num == 0) {
-            //     $error = '<script>alert("No products found")</script>';
-            //     header('location: product_desc.php?error=' . $error);
-            // }
-            $row = mysqli_fetch_assoc($result);
-            ?>
+
             <div class="col-sm-6">
                 <img src="<?php echo $row['img_path']; ?>" class="img-fluid rounded-4" alt="">
             </div>
             <div class="col-sm-6">
                 <h2 class="mb-4 text-decoration-underline"><?php echo $row['name']; ?></h2>
-
+                <p><?php echo $row['category']; ?></p>
                 <p class="mb-5"><?php echo $row['description']; ?></p>
+
+                <p><?php echo $row['price']; ?></p>
                 <div class="card-body">
                     <div class="row">
                         <form id="addtocart" method="POST" action="ccart.php">

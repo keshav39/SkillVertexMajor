@@ -31,7 +31,7 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Market -Home</title>
+    <title>Super Market - Cart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- <link rel="stylesheet" href="assets/css/home.css"> -->
@@ -48,11 +48,14 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
             <div class="col-sm-7" style="background: #fff;">
                 <h1>Supermarket</h1>
                 <hr>
-                <p class="">Delivery Address</p>
+                <div class="d-flex justify-content-between">
+                    <p class="m-0 p-0">Delivery Address</p>
+                    <p class="m-0 p-0"><?php echo $_SESSION['address']; ?></p>
+                </div>
                 <hr>
                 <?php
                 $user_id = $_SESSION['user_id'];
-                $query = "SELECT  products.*, amount FROM cart_items, products WHERE products.id=product_id and user_id='$user_id'";
+                $query = "SELECT  products.*, product_id, amount FROM cart_items, products WHERE products.id=product_id and user_id='$user_id' and status='Added to Cart'";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 $total = 0;
@@ -62,6 +65,7 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                 // }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
+
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -72,7 +76,7 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                                     <h5 class="card-title"><?php echo $row['name']; ?></h5>
                                     <div class="d-flex justify-content-between">
                                         <p><?php echo $row['category']; ?></p>
-                                        <p><?php echo $row['price']; ?></p>
+                                        <p>₹<?php echo $row['price']; ?></p>
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-btn">
@@ -91,6 +95,7 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                             </div>
                         </div>
                     </div>
+
                 <?php
                     $total += $row['price'];
                 }
@@ -149,9 +154,6 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
     }
     ?>
     </div>
-
-    <?php include 'includes/login-footer.php' ?>
-
     <script>
         $(document).ready(function() {
 
@@ -188,6 +190,8 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
 
         });
     </script>
+    <?php include 'includes/login-footer.php' ?>
+
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>

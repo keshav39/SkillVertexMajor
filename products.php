@@ -34,7 +34,7 @@ include 'includes/common.php';
         ?>
         <div class="row">
             <?php
-            $query = "SELECT id, name, img_path FROM products";
+            $query = "SELECT * FROM products";
             $result = mysqli_query($con, $query) or die($mysqli_error($con));
             $num = mysqli_num_rows($result);
             if ($num == 0) {
@@ -44,11 +44,15 @@ include 'includes/common.php';
             while ($row = mysqli_fetch_array($result)) {
             ?>
                 <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
-                    <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark fw-bold">
+                    <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
                         <div class="card" style="width: 100%; ">
                             <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-title"><?php echo $row['name']; ?></p>
+                                <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
+                                <div class="mt-0 pt-0">
+                                    <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                    <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
+                                </div>
                             </div>
                         </div>
                     </a>
