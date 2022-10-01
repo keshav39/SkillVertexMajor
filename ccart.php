@@ -3,6 +3,12 @@ require('includes/common.php');
 if (!(isset($_SESSION["email"]))) {
     header('location: index.php');
 }
+if (isset($_POST['remove'])) {
+    $id = $_POST['remove'];
+    $user_id = $_SESSION['user_id'];
+    $query = "DELETE FROM cart_items WHERE user_id='$user_id' && product_id='$id'";
+    $result = mysqli_query($con, $query) or die($mysqli_error($con));
+}
 if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
     $amount = $_POST['amount'];
     $id = $_POST['add'];
@@ -59,10 +65,17 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 $total = 0;
-                // if ($num == 0) {
-                //     $error = '<script>alert("Items in Cart")</script>';
-                //     header('location: products.php?error=' . $error);
-                // }
+                if ($num == 0) {
+                    // $error = '<script>alert("Items in Cart")</script>';
+                    // header('location: products.php?error=' . $error);
+                ?>
+                    <div class="container">
+                        <div class="row justify-content-center align-items-center" style="height: 47.2vh;">
+                            <p style="font-size: 16px;" class="text-center">No Items in Cart. Click <a href="index.php">here</a> to Add Items</p>
+                        </div>
+                    </div>
+                <?php
+                }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
 
@@ -78,18 +91,24 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                                         <p><?php echo $row['category']; ?></p>
                                         <p>₹<?php echo $row['price']; ?></p>
                                     </div>
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="" style="border-radius: 50%;">
-                                                <!-- <span class="glyphicon glyphicon-minus"></span> --> -
-                                            </button>
-                                        </span>
-                                        <input type="text" id="quantity" name="quantity" class="me-2 ms-2 input-number" value="<?php echo $row['amount']; ?>" min="1" max="100" style="width: 20%;">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="" style="border-radius: 50%;">
-                                                <!-- <span class="glyphicon glyphicon-plus"></span> -->+
-                                            </button>
-                                        </span>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="" style="border-radius: 50%;">
+                                                    <!-- <span class="glyphicon glyphicon-minus"></span> --> -
+                                                </button>
+                                            </span>
+                                            <input type="text" min="1" max="100" id="quantity" name="quantity" class="me-2 ms-2 input-number" value="<?php echo $row['amount']; ?>" min="1" max="100" style="width: 20%;">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="" style="border-radius: 50%;">
+                                                    <!-- <span class="glyphicon glyphicon-plus"></span> -->+
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <form action="ccart.php" method="POST" id="removefromcart"></form>
+                                            <button form="removefromcart" name="remove" value="<?php echo $row['product_id']; ?>" class="btn btn-danger">Remove</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -97,12 +116,21 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                     </div>
 
                 <?php
-                    $total += $row['price'];
+                    $total += ($row['price'] * $row['amount']);
+                }
+                if ($num == 1) {
+                ?>
+                    <div class="row justify-content-center align-items-center" style="height: 24.8vh;"></div>
+                <?php
+                } elseif ($num == 2) {
+                ?>
+                    <div class="row justify-content-center align-items-center" style="height: 2.4vh;"></div>
+                <?php
                 }
                 ?>
             </div>
             <div class="col-sm-1" style="background: #fff; border-left: 5px solid grey;"></div>
-            <div class="col-sm-4" style="background: #fff; position: fixed; right: 0;">
+            <div class="col-sm-4" style="background: transparent; position: fixed; right: 0;">
                 <div class="row">
                     <div class="col-sm-12">
                         <h2 class="mt-3">Price Details</h2>

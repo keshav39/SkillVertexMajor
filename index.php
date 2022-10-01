@@ -43,364 +43,290 @@ include 'includes/common.php';
     }
     ?>
     <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">My Smart Basket</h3>
-        <hr>
 
         <div class="mt-5 row mb-3 justify-content-evenly align-items-center">
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+            <h3 class="mt-5 text-center text-decoration-underline">My Smart Basket</h3>
+            <hr>
+            <?php
+            $query = "SELECT * FROM products LIMIT 4";
+            $result = mysqli_query($con, $query) or die($mysqli_error($con));
+            $num = mysqli_num_rows($result);
+            if ($num == 0) {
+                $error = '<script>alert("No products found")</script>';
+                header('location: products.php?error=' . $error);
+            }
+            while ($row = mysqli_fetch_array($result)) {
+            ?>
+                <div class="col-md-3 mb-4 mt-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row['name']; ?></h5>
                         </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
+                        <div class="card-body" style="background: #d1d1d1;">
 
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+                            <form id="addtocart" method="POST" action="ccart.php">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Qty</span>
+                                    <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
+                                </div>
+                                <button form="addtocart" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
+                            </form>
                         </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+        <div class="container">
+            <h3 class="mt-5 text-center text-decoration-underline">Our Best Sellers</h3>
+            <hr>
+
+            <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+                <?php
+                $query = "SELECT * FROM products LIMIT 4";
+                $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                $num = mysqli_num_rows($result);
+                if ($num == 0) {
+                    $error = '<script>alert("No products found")</script>';
+                    header('location: products.php?error=' . $error);
+                }
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <div class="col-md-3 mb-4 mt-4">
+                        <div class="card" style="width: 100%;">
+                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                            </div>
+                            <div class="card-body" style="background: #d1d1d1;">
+
+                                <form id="addtocart" method="POST" action="ccart.php">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Qty</span>
+                                        <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
+                                    </div>
+                                    <button form="addtocart" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+
+            </div>
+        </div>
+        <div class="container">
+            <h3 class="mt-5 text-center text-decoration-underline">Beverages</h3>
+            <hr>
+
+            <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+                <?php
+                $query = "SELECT * FROM products LIMIT 5";
+                $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                $num = mysqli_num_rows($result);
+                if ($num == 0) {
+                    $error = '<script>alert("No products found")</script>';
+                    header('location: products.php?error=' . $error);
+                }
+                $row = mysqli_fetch_array($result);
+                ?>
+                <div class="col-md-6"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                    </div>
+                    <div class="row">
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">Our Best Sellers</h3>
-        <hr>
+        <div class="container">
+            <h3 class="mt-5 text-center text-decoration-underline">Our Best Staples</h3>
+            <hr>
 
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+                <?php
+                $query = "SELECT * FROM products LIMIT 6";
+                $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                $num = mysqli_num_rows($result);
+                if ($num == 0) {
+                    $error = '<script>alert("No products found")</script>';
+                    header('location: products.php?error=' . $error);
+                }
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <div class="col-md-2 mb-4 mt-4">
+                        <div class="card staples" style="width: 100%; ">
+                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
                     </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%;">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
+        </div>
+        <div class="container">
+            <h3 class="mt-5 text-center text-decoration-underline">Fruits & Vegetables</h3>
+            <hr>
 
-                    <div class="card-body" style="background: #d1d1d1;">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Qty</span>
-                            <input type="text" class="form-control" placeholder="Amount" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <a href="#" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""> </a>
+            <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+                <?php
+                $query = "SELECT * FROM products LIMIT 5";
+                $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                $num = mysqli_num_rows($result);
+                if ($num == 0) {
+                    $error = '<script>alert("No products found")</script>';
+                    header('location: products.php?error=' . $error);
+                }
+                $row = mysqli_fetch_array($result);
+                ?>
+                <div class="col-md-6"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                    </div>
+                    <div class="row">
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <?php
+                        $row = mysqli_fetch_array($result);
+                        ?>
+                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">Beverages</h3>
-        <hr>
+        <div class="container">
+            <h3 class="mt-5 text-center text-decoration-underline">Snacks Store</h3>
+            <hr>
 
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-md-6"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-                </div>
+            <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+                <?php
+                $query = "SELECT * FROM products LIMIT 4";
+                $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                $num = mysqli_num_rows($result);
+                if ($num == 0) {
+                    $error = '<script>alert("No products found")</script>';
+                    header('location: products.php?error=' . $error);
+                }
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <div class="col-md-3 mb-4 mt-4">
+                        <div class="card" style="width: 100%; ">
+                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">Our Best Staples</h3>
-        <hr>
+        <div class="container">
+            <h3 class="mt-5 text-center text-decoration-underline">Kitchen Essentials</h3>
+            <hr>
 
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card staples" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
+            <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
+                <?php
+                $query = "SELECT * FROM products LIMIT 4";
+                $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                $num = mysqli_num_rows($result);
+                if ($num == 0) {
+                    $error = '<script>alert("No products found")</script>';
+                    header('location: products.php?error=' . $error);
+                }
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <div class="card kitchen" style="width: 100%; ">
+                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card staples" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card staples" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card staples" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card staples" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card staples" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
+                <div class="col-md-1"></div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">Fruits & Vegetables</h3>
-        <hr>
-
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-md-6"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+        <div class="container">
+            <h3 class="text-center mt-5 text-decoration-underline">Our Partners</h3>
+            <hr>
+            <div class="row mt-5 mb-5">
+                <div class="col-md-6">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/img/home/home-car-01.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/home/home-car-02.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/home/home-car-03.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/home/home-car-04.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
-                    <div class="col-md-6 p-3"><img src="assets/img/demo.jpg" style="width: 100%;" alt=""></div>
+                <div class="col-md-6">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/img/home/home-car-01.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/home/home-car-02.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/home/home-car-03.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/home/home-car-04.webp" class="d-block w-100" alt="Carousel-Image">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </div>
-    <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">Snacks Store</h3>
-        <hr>
-
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4 mt-4">
-                <div class="card" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h3 class="mt-5 text-center text-decoration-underline">Kitchen Essentials</h3>
-        <hr>
-
-        <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <div class="card kitchen" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card kitchen" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card kitchen" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card kitchen" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-2 mb-4 mt-4">
-                <div class="card kitchen" style="width: 100%; ">
-                    <img src="assets/img/demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Name</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
-    <div class="container">
-        <h3 class="text-center mt-5 text-decoration-underline">Our Partners</h3>
-        <hr>
-        <div class="row mt-5 mb-5">
-            <div class="col-md-6">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="assets/img/home/home-car-01.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/home/home-car-02.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/home/home-car-03.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/home/home-car-04.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="assets/img/home/home-car-01.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/home/home-car-02.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/home/home-car-03.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/home/home-car-04.webp" class="d-block w-100" alt="Carousel-Image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <?php include 'includes/login-footer.php' ?>

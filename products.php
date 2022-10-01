@@ -62,6 +62,11 @@ include 'includes/common.php';
             ?>
         </div>
         <?php
+        if ($num < 7) {
+        ?>
+            <div class="row justify-content-center align-items-center" style="height: 19.2vh;"></div>
+        <?php
+        }
         if (isset($_GET["error"])) {
             echo $_GET['error'];
         }
