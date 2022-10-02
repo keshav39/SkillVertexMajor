@@ -22,8 +22,12 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
             $result = mysqli_query($con, $query) or die($mysqli_error($con));
         }
     } else {
-        $error = '<script>alert("Items already in Cart")</script>';
-        header('location: ccart.php?error=' . $error);
+?>
+        <script>
+            window.alert("Items already in Cart");
+            location.href = "ccart.php";
+        </script>
+<?php
     }
 }
 header('location: ' . $_SERVER['HTTP_REFERER']);

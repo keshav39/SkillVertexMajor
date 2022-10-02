@@ -42,7 +42,7 @@ CREATE TABLE `cart_items` (
 
 INSERT INTO `cart_items` (`id`, `product_id`, `user_id`, `amount`, `status`, `order_id`) VALUES
 (34, 1, 4, 4, 'Confired', '4 2022/10/02/12/15/12'),
-(36, 2, 4, 5, 'Confired', '4 2022/10/02/12/15/12'),
+(36, 2, 4, 5, 'Confirmed', '4 2022/10/02/12/15/12'),
 (40, 1, 0, 5, 'Added to cart', NULL);
 
 -- --------------------------------------------------------

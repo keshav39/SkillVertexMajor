@@ -28,8 +28,12 @@ include 'includes/common.php';
             $result = mysqli_query($con, $query) or die($mysqli_error($con));
             $num = mysqli_num_rows($result);
             if ($num == 0) {
-                $error = '<script>alert("No products found")</script>';
-                header('location: products.php?error=' . $error);
+            ?>
+                <script>
+                    window.alert("No Products Found");
+                    location.href = "products.php";
+                </script>
+            <?php
             }
             $row = mysqli_fetch_assoc($result);
             ?>
@@ -47,7 +51,7 @@ include 'includes/common.php';
                     <div class="row">
                         <form id="addtocart" method="POST" action="ccart_script.php" class="d-flex justify-content-start mt-4">
                             <div class="col-sm-3 m-0 p-0 me-1">
-                                <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
+                                <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Quantity" aria-describedby="basic-addon1" required>
                             </div>
                             <div class="col-sm-2 m-0 p-0">
                                 <button form="addtocart" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>

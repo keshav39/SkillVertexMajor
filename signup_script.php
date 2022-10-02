@@ -30,14 +30,26 @@ $result = mysqli_query($con, $query) or die($mysqli_error($con));
 $num = mysqli_num_rows($result);
 
 if ($num != 0) {
-  $m = '<script>alert("Email Already Exists")</script>';
-  header('location: signup.php?m1=' . $m);
+?>
+  <script>
+    window.alert("Email Already Exists");
+    location.href = "register.php";
+  </script>
+<?php
 } else if (!preg_match($regex_email, $email)) {
-  $m = '<script>alert("Not a Valid Email Id")</script>';
-  header('location: signup.php?m1=' . $m);
+?>
+  <script>
+    window.alert("Not a Valid Email Address");
+    location.href = "register.php";
+  </script>
+<?php
 } else if (!preg_match($regex_num, $contact)) {
-  $m = '<script>alert("Not a Valid Phone Number")</script>';
-  header('location: signup.php?m2=' . $m);
+?>
+  <script>
+    window.alert("Not a Valid Phone Number");
+    location.href = "register.php";
+  </script>
+<?php
 } else {
 
   $query = "INSERT INTO users(name, email, password, contact, city, address)VALUES('" . $name . "','" . $email . "','" . $password . "','" . $contact . "','" . $city . "','" . $address . "')";

@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-light text-center text-lg-start">
+<footer id="footer" class="bg-light text-center text-lg-start">
     <!-- Copyright -->
     <div class="text-center p-3" id="Footer">
         <div class="row justify-content-center">

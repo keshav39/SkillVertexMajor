@@ -43,14 +43,17 @@ if (!(isset($_SESSION["email"]))) {
                     $result = mysqli_query($con, $query) or die($mysqli_error($con));
                     $num = mysqli_num_rows($result);
                     if ($num != 0) {
-                        $order_id = $user_id . ' ' . date("Y/m/d/h/i/s");
+                        $order_id = $user_id . '/' . date("Y/m/d/h/i/s");
                         while ($row = mysqli_fetch_array($result)) {
                             $pr_id = $row['product_id'];
-                            $query = "UPDATE cart_items SET status='Confired', order_id='$order_id' WHERE product_id='$pr_id' and user_id='$user_id' and status='Added To Cart'";
+                            $query = "UPDATE cart_items SET status='Confirmed', order_id='$order_id' WHERE product_id='$pr_id' and user_id='$user_id' and status='Added To Cart'";
                             $res = mysqli_query($con, $query) or die($mysqli_error($con));
                         }
-                        $error = '<script>alert("Order Confired")</script>';
-                        header('location: ccart.php?error=' . $error);
+                ?>
+                        <script>
+                            window.alert("Order Confirmed");
+                        </script>
+                    <?php
                     }
                 }
 
@@ -58,7 +61,7 @@ if (!(isset($_SESSION["email"]))) {
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 while ($row = mysqli_fetch_array($result)) {
-                ?>
+                    ?>
 
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">

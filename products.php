@@ -39,9 +39,9 @@ include 'includes/common.php';
                 if ($num == 0) {
                 ?>
                     <script>
-                        window.alert("No products found");
-                        location.href = 'products.php';
-                    </script>';
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
                 <?php
                 }
 
@@ -75,8 +75,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -111,7 +115,7 @@ include 'includes/common.php';
                 if ($num == 0) {
                 ?>
                     <script>
-                        window.alert("No products found");
+                        window.alert("No Products Found");
                         location.href = "products.php";
                     </script>
                 <?php
@@ -149,7 +153,7 @@ include 'includes/common.php';
                 if ($num == 0) {
                 ?>
                     <script>
-                        window.alert("No products found");
+                        window.alert("No Products Found");
                         location.href = "products.php";
                     </script>
                 <?php

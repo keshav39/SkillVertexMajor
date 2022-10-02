@@ -52,8 +52,12 @@ include 'includes/common.php';
             $result = mysqli_query($con, $query) or die($mysqli_error($con));
             $num = mysqli_num_rows($result);
             if ($num == 0) {
-                $error = '<script>alert("No products found")</script>';
-                header('location: products.php?error=' . $error);
+            ?>
+                <script>
+                    window.alert("No Product Found");
+                    location.href = "products.php";
+                </script>
+            <?php
             }
             while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -70,7 +74,7 @@ include 'includes/common.php';
                             <form id="addtocart1<?php echo $row['id']; ?>" method="POST" action="ccart_script.php">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Qty</span>
-                                    <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
+                                    <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Quantity" aria-describedby="basic-addon1" required>
                                 </div>
                                 <button form="addtocart1<?php echo $row['id']; ?>" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
                             </form>
@@ -91,8 +95,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -109,9 +117,9 @@ include 'includes/common.php';
                                 <form id="addtocart2<?php echo $row['id']; ?>" method="POST" action="ccart_script.php">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Qty</span>
-                                        <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
+                                        <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Quantity" aria-describedby="basic-addon1" required>
                                     </div>
-                                    <button form="addtocar2<?php echo $row['id']; ?>" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
+                                    <button form="addtocart2<?php echo $row['id']; ?>" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
                                 </form>
                             </div>
                         </div>
@@ -132,8 +140,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 $row = mysqli_fetch_array($result);
                 ?>
@@ -192,8 +204,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -222,8 +238,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 $row = mysqli_fetch_array($result);
                 ?>
@@ -282,8 +302,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -312,8 +336,12 @@ include 'includes/common.php';
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
-                    $error = '<script>alert("No products found")</script>';
-                    header('location: products.php?error=' . $error);
+                ?>
+                    <script>
+                        window.alert("No Products Found");
+                        location.href = "products.php";
+                    </script>
+                <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
