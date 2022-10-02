@@ -1,5 +1,6 @@
 <?php
 include 'includes/common.php';
+include 'modal.php';
 ?>
 
 <nav class="navbar navbar-expand-lg sticky-top" style="background: radial-gradient(circle, rgba(63,251,208,0.8519782913165266) 0%, rgba(67,252,91,0.8715861344537815) 49%, rgba(94,70,252,0.8211659663865546) 100%);">
@@ -23,10 +24,22 @@ include 'includes/common.php';
                         <li><a class="dropdown-item" href="./products.php?category=Beverages">Beverages</a></li>
                         <li><a class="dropdown-item" href="./products.php?category=Snacks">Snacks</a></li>
                         <li><a class="dropdown-item" href="./products.php?category=Essentials">Kitchen Essentials</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="./products.php?category=Popular">Popular</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Brands
+                    </a>
+                    <ul class="dropdown-menu">
+                        <?php
+                        $query = "SELECT DISTINCT brand FROM products";
+                        $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <li><a class="dropdown-item" href="./products.php?brand=<?php echo $row['brand']; ?>"><?php echo $row['brand']; ?></a></li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -35,6 +48,15 @@ include 'includes/common.php';
                 <li class="nav-item">
                     <a class="nav-link active" href="./contact.php">Contact</a>
                 </li>
+
+                <!-- Modal Button -->
+                <li style="margin-left: 100px">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#filter">
+                        Filter
+                    </button>
+                </li>
+                <!-- End -->
+
             </ul>
             <?php
             if (isset($_SESSION["email"])) {

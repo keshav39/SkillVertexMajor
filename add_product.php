@@ -68,9 +68,8 @@ if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
-                                                <label for="category" class="mb-3">Select a Category : </label>
                                                 <select class="form-control" name="cate" required>
-                                                    <option selected>Category...</option>
+                                                    <option selected>Select a Category...</option>
                                                     <option>Staples</option>
                                                     <option>Beverages</option>
                                                     <option>Snacks</option>

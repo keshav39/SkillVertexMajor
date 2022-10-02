@@ -1,32 +1,8 @@
 <?php
-require('includes/common.php');
+include 'includes/common.php';
+error_reporting(0);
 if (!(isset($_SESSION["email"]))) {
     header('location: index.php');
-}
-if (isset($_POST['remove'])) {
-    $id = $_POST['remove'];
-    $user_id = $_SESSION['user_id'];
-    $query = "DELETE FROM cart_items WHERE user_id='$user_id' && product_id='$id'";
-    $result = mysqli_query($con, $query) or die($mysqli_error($con));
-}
-if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
-    $amount = $_POST['amount'];
-    $id = $_POST['add'];
-    $user_id = $_SESSION['user_id'];
-    $query = "SELECT * FROM cart_items WHERE user_id='$user_id' && product_id='$id'";
-    $result = mysqli_query($con, $query) or die($mysqli_error($con));
-    $num = mysqli_num_rows($result);
-    if ($num == 0) {
-        $query = "INSERT INTO cart_items (product_id, user_id, status, amount) VALUES('$id', '$user_id', 'Added to cart', '$amount')";
-        mysqli_query($con, $query) or die(mysqli_error($con));
-        if ($amount <= 0) {
-            $query = "DELETE FROM cart_items WHERE user_id='$user_id' && product_id='$id'";
-            $result = mysqli_query($con, $query) or die($mysqli_error($con));
-        }
-    } else {
-        $error = '<script>alert("Items already in Cart")</script>';
-        header('location: ccart.php?error=' . $error);
-    }
 }
 ?>
 
@@ -60,22 +36,27 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                 </div>
                 <hr>
                 <?php
+                $total = 0;
                 $user_id = $_SESSION['user_id'];
-                $query = "SELECT  products.*, product_id, amount FROM cart_items, products WHERE products.id=product_id and user_id='$user_id' and status='Added to Cart'";
+                if (isset($_POST['confirm'])) {
+                    $query = "SELECT  product_id FROM cart_items WHERE user_id='$user_id' and status='Added to Cart'";
+                    $result = mysqli_query($con, $query) or die($mysqli_error($con));
+                    $num = mysqli_num_rows($result);
+                    if ($num != 0) {
+                        $order_id = $user_id . ' ' . date("Y/m/d/h/i/s");
+                        while ($row = mysqli_fetch_array($result)) {
+                            $pr_id = $row['product_id'];
+                            $query = "UPDATE cart_items SET status='Confired', order_id='$order_id' WHERE product_id='$pr_id' and user_id='$user_id' and status='Added To Cart'";
+                            $res = mysqli_query($con, $query) or die($mysqli_error($con));
+                        }
+                        $error = '<script>alert("Order Confired")</script>';
+                        header('location: ccart.php?error=' . $error);
+                    }
+                }
+
+                $query = "SELECT  products.*, product_id, amount FROM cart_items, products WHERE products.id=product_id and user_id='$user_id' and status='Added To Cart'";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
-                $total = 0;
-                if ($num == 0) {
-                    // $error = '<script>alert("Items in Cart")</script>';
-                    // header('location: products.php?error=' . $error);
-                ?>
-                    <div class="container">
-                        <div class="row justify-content-center align-items-center" style="height: 47.2vh;">
-                            <p style="font-size: 16px;" class="text-center">No Items in Cart. Click <a href="index.php">here</a> to Add Items</p>
-                        </div>
-                    </div>
-                <?php
-                }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
 
@@ -106,8 +87,9 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
                                             </span>
                                         </div>
                                         <div>
-                                            <form action="ccart.php" method="POST" id="removefromcart"></form>
-                                            <button form="removefromcart" name="remove" value="<?php echo $row['product_id']; ?>" class="btn btn-danger">Remove</button>
+                                            <form action="ccart_script.php" method="POST" id="removefromcart">
+                                                <button form="removefromcart" name="remove" value="<?php echo $row['product_id']; ?>" class="btn btn-danger">Remove</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -117,6 +99,29 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
 
                 <?php
                     $total += ($row['price'] * $row['amount']);
+                }
+                if ($num == 0) {
+                ?>
+                    <div class="container">
+                        <div class="row justify-content-center align-items-center" style="height: 47.2vh;">
+                            <p style="font-size: 16px;" class="text-center">No Items in Cart. Click <a href="index.php" style="text-decoration: none;">here</a> to Add Items</p>
+                        </div>
+                        <div class="row align-items-center">
+                            <a name="history" href="order_history.php" type="button" class="btn btn-lg btn-outline-info" style="border-radius: 20px; width: auto;">Order History</a>
+                        </div>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="row align-items-center justify-content-around">
+                        <a name="history" href="order_history.php" type="button" class="btn btn-lg btn-outline-info" style="border-radius: 20px; width: auto;">Order History</a>
+                        <span style="width: auto">
+                            <form action="ccart.php" method="POST" id="confirmorder">
+                                <button form="confirmorder" name="confirm" type="submit" class="btn btn-lg btn-outline-success" style="border-radius: 20px;">Confirm Order</button>
+                            </form>
+                        </span>
+                    </div>
+                <?php
                 }
                 if ($num == 1) {
                 ?>

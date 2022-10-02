@@ -1,0 +1,29 @@
+<?php
+require('includes/common.php');
+
+if (isset($_POST['remove'])) {
+    $id = $_POST['remove'];
+    $user_id = $_SESSION['user_id'];
+    $query = "DELETE FROM cart_items WHERE user_id='$user_id' and product_id='$id' and status='Added To Cart'";
+    $result = mysqli_query($con, $query) or die($mysqli_error($con));
+}
+if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
+    $amount = $_POST['amount'];
+    $id = $_POST['add'];
+    $user_id = $_SESSION['user_id'];
+    $query = "SELECT * FROM cart_items WHERE user_id='$user_id' and product_id='$id' and status='Added To Cart'";
+    $result = mysqli_query($con, $query) or die($mysqli_error($con));
+    $num = mysqli_num_rows($result);
+    if ($num == 0) {
+        $query = "INSERT INTO cart_items (product_id, user_id, status, amount) VALUES('$id', '$user_id', 'Added to cart', '$amount')";
+        mysqli_query($con, $query) or die(mysqli_error($con));
+        if ($amount <= 0) {
+            $query = "DELETE FROM cart_items WHERE user_id='$user_id' and product_id='$id' and status='Added To Cart'";
+            $result = mysqli_query($con, $query) or die($mysqli_error($con));
+        }
+    } else {
+        $error = '<script>alert("Items already in Cart")</script>';
+        header('location: ccart.php?error=' . $error);
+    }
+}
+header('location: ' . $_SERVER['HTTP_REFERER']);

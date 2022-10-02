@@ -11,7 +11,7 @@
                 </p>
             </div>
         </div>
-        <p> © 2022 Copyright </p>
+        <p> © <?php echo date("Y"); ?> Copyright </p>
     </div>
     <!-- Copyright End -->
 </footer>

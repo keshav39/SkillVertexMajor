@@ -59,18 +59,20 @@ include 'includes/common.php';
             ?>
                 <div class="col-md-3 mb-4 mt-4">
                     <div class="card" style="width: 100%;">
-                        <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                        </div>
+                        <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                            </div>
+                        </a>
                         <div class="card-body" style="background: #d1d1d1;">
 
-                            <form id="addtocart" method="POST" action="ccart.php">
+                            <form id="addtocart1<?php echo $row['id']; ?>" method="POST" action="ccart_script.php">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Qty</span>
                                     <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
                                 </div>
-                                <button form="addtocart" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
+                                <button form="addtocart1<?php echo $row['id']; ?>" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
                             </form>
                         </div>
                     </div>
@@ -96,18 +98,20 @@ include 'includes/common.php';
                 ?>
                     <div class="col-md-3 mb-4 mt-4">
                         <div class="card" style="width: 100%;">
-                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                            </div>
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                </div>
+                            </a>
                             <div class="card-body" style="background: #d1d1d1;">
 
-                                <form id="addtocart" method="POST" action="ccart.php">
+                                <form id="addtocart2<?php echo $row['id']; ?>" method="POST" action="ccart_script.php">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Qty</span>
                                         <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
                                     </div>
-                                    <button form="addtocart" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
+                                    <button form="addtocar2<?php echo $row['id']; ?>" name="add" value="<?php echo $row['id']; ?>" class="btn btn-warning">Add <img style="margin-left: 2px; margin-bottom: 4px;" src="assets/img/icons/tool.png" alt=""></button>
                                 </form>
                             </div>
                         </div>
@@ -133,27 +137,47 @@ include 'includes/common.php';
                 }
                 $row = mysqli_fetch_array($result);
                 ?>
-                <div class="col-md-6"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                <div class="col-md-6">
+                    <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                        <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                    </a>
+                </div>
                 <div class="col-md-6">
                     <div class="row">
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                     </div>
                     <div class="row">
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -175,10 +199,12 @@ include 'includes/common.php';
                 ?>
                     <div class="col-md-2 mb-4 mt-4">
                         <div class="card staples" style="width: 100%; ">
-                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
-                            </div>
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 <?php
@@ -201,27 +227,47 @@ include 'includes/common.php';
                 }
                 $row = mysqli_fetch_array($result);
                 ?>
-                <div class="col-md-6"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                <div class="col-md-6">
+                    <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                        <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                    </a>
+                </div>
                 <div class="col-md-6">
                     <div class="row">
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                     </div>
                     <div class="row">
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                         <?php
                         $row = mysqli_fetch_array($result);
                         ?>
-                        <div class="col-md-6 p-3"><img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt=""></div>
+                        <div class="col-md-6 p-3">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%;" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,11 +288,13 @@ include 'includes/common.php';
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
                     <div class="col-md-3 mb-4 mt-4">
-                        <div class="card" style="width: 100%; ">
-                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
-                            </div>
+                        <div class="card" style="width: 100%;">
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 <?php
@@ -272,10 +320,12 @@ include 'includes/common.php';
                     <div class="col-md-1"></div>
                     <div class="col-md-2">
                         <div class="card kitchen" style="width: 100%; ">
-                            <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
-                            </div>
+                            <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 <?php

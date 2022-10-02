@@ -1,14 +1,5 @@
 <?php
 include 'includes/common.php';
-$id = $_GET['id'];
-$query = "SELECT * FROM products WHERE id='$id'";
-$result = mysqli_query($con, $query) or die($mysqli_error($con));
-$num = mysqli_num_rows($result);
-// if ($num == 0) {
-//     $error = '<script>alert("No products found")</script>';
-//     header('location: product_desc.php?error=' . $error);
-// }
-$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -31,19 +22,30 @@ $row = mysqli_fetch_assoc($result);
 
     <div class="container-fluid mt-5">
         <div class="row">
+            <?php
+            $id = $_GET['id'];
+            $query = "SELECT * FROM products WHERE id='$id'";
+            $result = mysqli_query($con, $query) or die($mysqli_error($con));
+            $num = mysqli_num_rows($result);
+            if ($num == 0) {
+                $error = '<script>alert("No products found")</script>';
+                header('location: products.php?error=' . $error);
+            }
+            $row = mysqli_fetch_assoc($result);
+            ?>
 
-            <div class="col-sm-6">
-                <img src="<?php echo $row['img_path']; ?>" class="img-fluid rounded-4" alt="">
+            <div class="col-sm-6 ">
+                <img src="<?php echo $row['img_path']; ?>" class="img-fluid rounded-4" style="height: 90%;">
             </div>
             <div class="col-sm-6">
-                <h2 class="mb-4 text-decoration-underline"><?php echo $row['name']; ?></h2>
-                <p><?php echo $row['category']; ?></p>
-                <p class="mb-5"><?php echo $row['description']; ?></p>
+                <h2 class="text-decoration-underline fw-bold"><?php echo $row['name'] ?></h2>
+                <p class="mb-3" style="font-style: italic; font-size: 20px;"><?php echo $row['category']; ?></p>
+                <p class="mb-4"><?php echo $row['description']; ?></p>
 
-                <p><?php echo $row['price']; ?></p>
+                <p class="fw-bold">Price : ₹<?php echo $row['price']; ?></p>
                 <div class="card-body">
                     <div class="row">
-                        <form id="addtocart" method="POST" action="ccart.php">
+                        <form id="addtocart" method="POST" action="ccart_script.php" class="d-flex justify-content-start mt-4">
                             <div class="col-sm-3 m-0 p-0 me-1">
                                 <input type="number" min="1" max="100" class="form-control" name="amount" placeholder="Amount" aria-describedby="basic-addon1" required>
                             </div>
