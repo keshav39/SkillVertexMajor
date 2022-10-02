@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2022 at 08:08 PM
+-- Generation Time: Oct 02, 2022 at 04:05 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -31,17 +31,19 @@ CREATE TABLE `cart_items` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `amount` int(11) NOT NULL
+  `order_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart_items`
 --
 
-INSERT INTO `cart_items` (`id`, `product_id`, `user_id`, `status`, `amount`) VALUES
-(5, 2, 2, 'Added to cart', 5),
-(6, 7, 2, 'Added to cart', 3);
+INSERT INTO `cart_items` (`id`, `product_id`, `user_id`, `amount`, `status`, `order_id`) VALUES
+(34, 1, 4, 4, 'Confired', '4 2022/10/02/12/15/12'),
+(36, 2, 4, 5, 'Confired', '4 2022/10/02/12/15/12'),
+(40, 1, 0, 5, 'Added to cart', NULL);
 
 -- --------------------------------------------------------
 
@@ -77,8 +79,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `description`, `category`, `brand`, `price`, `img_path`) VALUES
 (1, 'Dummy Product 1', 'Dummy Product 1', 'Staples', 'A', 100, 'assets/img/products/demo-image-01.jpg'),
-(2, 'Dummy Project 2', 'Dummy Project 2 for Product Page', 'Staples', 'B', 50, 'assets/img/products/demo-image-02.jpg'),
-(7, 'Dummy Product 3', 'Dummy Product 3', 'Staples', 'C', 300, 'assets/img/products/demo-image-01.jpg');
+(2, 'Dummy Project 2', 'Dummy Project 2 for Product Page', 'Staples', 'B', 50, 'assets/img/products/demo-image-02.jpg');
 
 -- --------------------------------------------------------
 
@@ -134,13 +135,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
