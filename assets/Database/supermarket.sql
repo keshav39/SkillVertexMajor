@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2022 at 04:05 PM
+-- Generation Time: Oct 03, 2022 at 08:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -36,15 +36,6 @@ CREATE TABLE `cart_items` (
   `order_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cart_items`
---
-
-INSERT INTO `cart_items` (`id`, `product_id`, `user_id`, `amount`, `status`, `order_id`) VALUES
-(34, 1, 4, 4, 'Confired', '4 2022/10/02/12/15/12'),
-(36, 2, 4, 5, 'Confirmed', '4 2022/10/02/12/15/12'),
-(40, 1, 0, 5, 'Added to cart', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -52,6 +43,7 @@ INSERT INTO `cart_items` (`id`, `product_id`, `user_id`, `amount`, `status`, `or
 --
 
 CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `email` varchar(255) CHARACTER SET latin1 NOT NULL,
   `message` varchar(255) CHARACTER SET latin1 NOT NULL
@@ -78,8 +70,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `category`, `brand`, `price`, `img_path`) VALUES
-(1, 'Dummy Product 1', 'Dummy Product 1', 'Staples', 'A', 100, 'assets/img/products/demo-image-01.jpg'),
-(2, 'Dummy Project 2', 'Dummy Project 2 for Product Page', 'Staples', 'B', 50, 'assets/img/products/demo-image-02.jpg');
+(1, 'Rice', 'The perceived characteristics of good-quality rice are uniformity of size and shape, whiteness, long and thin uncooked grains (i.e., long and slender), and round and fat cooked grains (i.e., bold cooked grains).', 'Staples', 'Uttam', 80, 'assets/img/products/rice.jpg');
 
 -- --------------------------------------------------------
 
@@ -102,8 +93,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `city`, `address`) VALUES
-(2, 'Keshav Garg', 'kggargkg@gmail.com', '02c75fb22c75b23dc963c7eb91a062cc', '8076141693', 'Rohini', 'New Delhi'),
-(4, 'Supermarket Admin', 'supermarketadmin@admin.com', 'd94354ac9cf3024f57409bd74eec6b4c', '8076141693', 'Rohini', 'New Delhi');
+(1, 'DB Admin', 'supermarketadmin@admin.com', 'd94354ac9cf3024f57409bd74eec6b4c', '9174161621', 'Rohini', 'New Delhi');
 
 --
 -- Indexes for dumped tables
@@ -113,6 +103,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `city`, `addr
 -- Indexes for table `cart_items`
 --
 ALTER TABLE `cart_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -135,19 +131,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
