@@ -1,6 +1,15 @@
 <?php
 require('includes/common.php');
 
+if (!isset($_SESSION['email'])) {
+?>
+    <script>
+        window.alert("Login First");
+        location.href = "login.php";
+    </script>
+    <?php
+}
+
 if (isset($_POST['remove'])) {
     $id = $_POST['remove'];
     $user_id = $_SESSION['user_id'];
@@ -22,7 +31,7 @@ if (isset($_POST['add']) && is_numeric($_POST['amount'])) {
             $result = mysqli_query($con, $query) or die($mysqli_error($con));
         }
     } else {
-?>
+    ?>
         <script>
             window.alert("Items already in Cart");
             location.href = "ccart.php";

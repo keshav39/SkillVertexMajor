@@ -49,6 +49,25 @@ if (isset($_POST['add'])) {
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" src="bootstrap/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
