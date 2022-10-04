@@ -26,7 +26,8 @@ if (isset($_POST['add'])) {
     <?php
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            mysqli_query($con, "INSERT INTO `products`(`name`, `description`, `category`,`brand` ,`price` , `img_path`) VALUES ('$name','$desc','$cate','$brand','$price','$target_file')");
+            $query = "INSERT INTO `products`(`name`, `description`, `category`,`brand` ,`price` , `img_path`) VALUES ('$name','$desc','$cate','$brand','$price','$target_file')";
+            $row = mysqli_query($con, $query) or die($mysqli_error($con));
         }
     ?>
         <script>
@@ -112,7 +113,7 @@ if (isset($_POST['add'])) {
 
                                         <div class="d-flex flex-row align-items-center mb-4 form-group">
                                             <div class="form-outline flex-fill mb-0">
-                                                <textarea type="text" name="desc" class="form-control" rows="5" placeholder="Enter Product Description" required></textarea>
+                                                <textarea type="text" name="desc" class="form-control" rows="10" placeholder="Enter Product Description" required></textarea>
                                             </div>
                                         </div>
 
@@ -122,6 +123,7 @@ if (isset($_POST['add'])) {
                                                     <option selected>Select a Category...</option>
                                                     <option>Staples</option>
                                                     <option>Beverages</option>
+                                                    <option>Fruits and Vegetables</option>
                                                     <option>Snacks</option>
                                                     <option>Kitchen Essentials</option>
                                                 </select>

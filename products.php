@@ -50,11 +50,12 @@ include 'includes/common.php';
                     <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
                         <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
                             <div class="card" style="width: 100%; ">
-                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: cover;">
+                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: fill;">
                                 <div class="card-body">
                                     <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
                                     <div class="mt-0 pt-0">
                                         <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                        <p class="m-0 p-0"><?php echo $row['brand']; ?></p>
                                         <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
                                     </div>
                                 </div>
@@ -87,11 +88,12 @@ include 'includes/common.php';
                     <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
                         <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
                             <div class="card" style="width: 100%; ">
-                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: cover;">
+                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: fillr;">
                                 <div class="card-body">
                                     <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
                                     <div class="mt-0 pt-0">
                                         <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                        <p class="m-0 p-0"><?php echo $row['brand']; ?></p>
                                         <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
                                     </div>
                                 </div>
@@ -125,11 +127,12 @@ include 'includes/common.php';
                     <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
                         <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
                             <div class="card" style="width: 100%; ">
-                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: cover;">
+                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: fill;">
                                 <div class="card-body">
                                     <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
                                     <div class="mt-0 pt-0">
                                         <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                        <p class="m-0 p-0"><?php echo $row['brand']; ?></p>
                                         <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
                                     </div>
                                 </div>
@@ -163,11 +166,12 @@ include 'includes/common.php';
                     <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
                         <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
                             <div class="card" style="width: 100%; ">
-                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: cover;">
+                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 129px; width: 100%; object-fit: fillr;">
                                 <div class="card-body">
                                     <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
                                     <div class="mt-0 pt-0">
                                         <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                        <p class="m-0 p-0"><?php echo $row['brand']; ?></p>
                                         <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
                                     </div>
                                 </div>

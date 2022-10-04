@@ -24,7 +24,7 @@ if (isset($_POST['cancel'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Market - Cart</title>
+    <title>Super Market - Order History</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- <link rel="stylesheet" href="assets/css/home.css"> -->
@@ -54,7 +54,7 @@ if (isset($_POST['cancel'])) {
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header d-flex" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="<?php echo '#flush-collapse' . $collapse; ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapse' . $collapse; ?>">
+                                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="<?php echo '#flush-collapse' . $collapse; ?>" aria-expanded="false" aria-controls="<?php echo 'flush-collapse' . $collapse; ?>">
                                         Order Id : <?php echo $ans['order_id']; ?>
                                     </button>
                                     <form action="order_history.php" method="POST" id="cancelorder" style="width: 15%;">
@@ -66,12 +66,12 @@ if (isset($_POST['cancel'])) {
                                         <table class="table text-center">
                                             <thead>
                                                 <tr>
-                                                    <th>Product Id</th>
+                                                    <th>Product #</th>
                                                     <th>Product Name</th>
                                                     <th>Category</th>
                                                     <th>Brand</th>
                                                     <th>Quantity</th>
-                                                    <th>Price</th>
+                                                    <th>Price (per unit)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -102,7 +102,7 @@ if (isset($_POST['cancel'])) {
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
-                                                        <td class="fw-bold">Total Price(+Extra Charges) : <?php echo '₹' . ($total - ($total * 0.1) + 40); ?></td>
+                                                        <td class="fw-bold">Amount Paid : <?php echo '₹' . ($total - ($total * 0.1) + 40); ?></td>
                                                     </tr>
                                                 <?php
                                                 }

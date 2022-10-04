@@ -1,5 +1,10 @@
 <?php
 include 'includes/common.php';
+
+$id = $_GET['id'];
+$query = "SELECT * FROM products WHERE id='$id'";
+$result = mysqli_query($con, $query) or die($mysqli_error($con));
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +44,12 @@ include 'includes/common.php';
             ?>
 
             <div class="col-sm-6 ">
-                <img src="<?php echo $row['img_path']; ?>" class="img-fluid rounded-4" style="height: 90%;">
+                <img src="<?php echo $row['img_path']; ?>" class="img-fluid rounded-4 mb-5" style="width: 662px; height: 442px; object-fir: fill;">
             </div>
             <div class="col-sm-6">
                 <h2 class="text-decoration-underline fw-bold"><?php echo $row['name'] ?></h2>
-                <p class="mb-3" style="font-style: italic; font-size: 20px;"><?php echo $row['category']; ?></p>
+                <p class="mb-0" style="font-style: italic; font-size: 20px;"><?php echo $row['category']; ?></p>
+                <p class="mb-3" style="font-style: italic; font-size: 15px;"><?php echo $row['brand']; ?></p>
                 <p class="mb-4"><?php echo $row['description']; ?></p>
 
                 <p class="fw-bold">Price : ₹<?php echo $row['price']; ?></p>

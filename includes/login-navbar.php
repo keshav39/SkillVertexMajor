@@ -22,8 +22,9 @@ include 'modal.php';
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="./products.php?category=Staples">Staples</a></li>
                         <li><a class="dropdown-item" href="./products.php?category=Beverages">Beverages</a></li>
+                        <li><a class="dropdown-item" href="./products.php?category=Fruits and Vegetables">Fruits and Vegetables</a></li>
                         <li><a class="dropdown-item" href="./products.php?category=Snacks">Snacks</a></li>
-                        <li><a class="dropdown-item" href="./products.php?category=Essentials">Kitchen Essentials</a></li>
+                        <li><a class="dropdown-item" href="./products.php?category=Kitchen Essentials">Kitchen Essentials</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

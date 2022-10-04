@@ -25,5 +25,10 @@ if ($num == 0) {
 } else {
     $query = "INSERT INTO contact(name, email, message)VALUES('" . $name . "','" . $email . "','" . $message . "')";
     mysqli_query($con, $query) or die(mysqli_error($con));
+?>
+    <script>
+        window.alert("Message Sent");
+    </script>
+<?php
     header('location: contact.php');
 }

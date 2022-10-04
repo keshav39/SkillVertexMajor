@@ -25,6 +25,7 @@
                          <option selected>Select a Category...</option>
                          <option>Staples</option>
                          <option>Beverages</option>
+                         <option>Fruits and Vegetables</option>
                          <option>Snacks</option>
                          <option>Kitchen Essentials</option>
                      </select>

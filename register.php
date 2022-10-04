@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7] d-flex align-items-center order-1 order-lg-2">
 
-                                    <img src="assets/img/register-bg.png" class="img-fluid mb-10" style="object-fit: cover; width: 500px; border-radius: 10px; opacity: 0.9;" alt="Sample image">
+                                    <img src="assets/img/register-bg.png" class="img-fluid mb-10" style="object-fit: fill; width: 500px; border-radius: 10px; opacity: 0.9;" alt="Sample image">
 
                                 </div>
                             </div>

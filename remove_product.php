@@ -1,5 +1,10 @@
 <?php
 include 'includes/common.php';
+
+if (!(isset($_SESSION["email"]) && $_SESSION["email"] == "supermarketadmin@admin.com")) {
+    header('location: index.php');
+}
+
 if (isset($_POST['remove'])) {
     $id = $_POST['remove'];
     $query = "DELETE FROM products WHERE id='$id'";
@@ -20,7 +25,7 @@ if (isset($_POST['remove'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Market - Products</title>
+    <title>Super Market - Remove Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/home.css">
@@ -52,11 +57,12 @@ if (isset($_POST['remove'])) {
                 ?>
                     <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
                         <div class="card" style="width: 100%; ">
-                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="width: 100%; height: 129px; object-fit: cover;">
+                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="width: 100%; height: 129px; object-fit: fill;">
                             <div class="card-body">
                                 <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
                                 <div class="mt-0 pt-0">
                                     <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                    <p class="m-0 p-0"><?php echo $row['brand']; ?></p>
                                     <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
                                 </div>
                                 <hr>
@@ -94,11 +100,12 @@ if (isset($_POST['remove'])) {
                 ?>
                     <div class="col-md-4 col-6 col-xl-3 col-sm-6 mb-4 mt-4 col-xxl-2">
                         <div class="card" style="width: 100%; ">
-                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="width: 100%; height: 129px; object-fit: cover;">
+                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="width: 100%; height: 129px; object-fit: fillr;">
                             <div class="card-body">
                                 <p class="card-title fw-bold mb-0 pb-0"><?php echo $row['name']; ?></p>
                                 <div class="mt-0 pt-0">
                                     <p class="m-0 p-0"><?php echo $row['category']; ?></p>
+                                    <p class="m-0 p-0"><?php echo $row['brand']; ?></p>
                                     <p class="m-0 p-0"> Price : ₹<?php echo $row['price']; ?></p>
                                 </div>
                                 <hr>

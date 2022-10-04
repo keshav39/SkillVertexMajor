@@ -27,7 +27,7 @@ include 'includes/common.php';
                 <img src="assets/img/home/home-car-01.webp" class="d-block w-100" alt="Carousel-Image">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/home/home-car-02.webp" cløass="d-block w-100" alt="Carousel-Image">
+                <img src="assets/img/home/home-car-02.webp" class="d-block w-100" alt="Carousel-Image">
             </div>
             <div class="carousel-item">
                 <img src="assets/img/home/home-car-03.webp" class="d-block w-100" alt="Carousel-Image">
@@ -64,9 +64,16 @@ include 'includes/common.php';
                 <div class="col-md-3 mb-4 mt-4">
                     <div class="card" style="width: 100%;">
                         <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 203px; width: 100%; object-fit: cover;">
+                            <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 203px; width: 100%; object-fit: fill;">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                    <p class="card-title">₹<?php echo $row['price']; ?></p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="card-title"><?php echo $row['category']; ?></p>
+                                    <p class="card-title"><?php echo $row['brand']; ?></p>
+                                </div>
                             </div>
                         </a>
                         <div class="card-body" style="background: #d1d1d1;">
@@ -107,9 +114,16 @@ include 'includes/common.php';
                     <div class="col-md-3 mb-4 mt-4">
                         <div class="card" style="width: 100%;">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 203px; width: 100%; object-fit: cover;">
+                                <img src="<?php echo $row['img_path'] ?>" class="card-img-top" alt="..." style="height: 203px; width: 100%; object-fit: fill;">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                        <p class="card-title">₹<?php echo $row['price']; ?></p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title"><?php echo $row['category']; ?></p>
+                                        <p class="card-title"><?php echo $row['brand']; ?></p>
+                                    </div>
                                 </div>
                             </a>
                             <div class="card-body" style="background: #d1d1d1;">
@@ -136,22 +150,22 @@ include 'includes/common.php';
 
             <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
                 <?php
-                $query = "SELECT * FROM products LIMIT 5";
+                $query = "SELECT * FROM products WHERE category='Beverages' LIMIT 5";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
                 ?>
-                    <script>
+                    <!-- <script>
                         window.alert("No Products Found");
                         location.href = "products.php";
-                    </script>
+                    </script> -->
                 <?php
                 }
                 $row = mysqli_fetch_array($result);
                 ?>
                 <div class="col-md-6">
                     <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                        <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 416px; object-fit: cover;" alt="">
+                        <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 416px; object-fit: fill;" alt="">
                     </a>
                 </div>
                 <div class="col-md-6">
@@ -161,7 +175,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                         <?php
@@ -169,7 +183,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                     </div>
@@ -179,7 +193,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                         <?php
@@ -187,7 +201,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                     </div>
@@ -200,15 +214,15 @@ include 'includes/common.php';
 
             <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
                 <?php
-                $query = "SELECT * FROM products LIMIT 6";
+                $query = "SELECT * FROM products WHERE category='Staples' LIMIT 6";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
                 ?>
-                    <script>
+                    <!-- <script>
                         window.alert("No Products Found");
                         location.href = "products.php";
-                    </script>
+                    </script> -->
                 <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
@@ -216,9 +230,15 @@ include 'includes/common.php';
                     <div class="col-md-2 mb-4 mt-4">
                         <div class="card staples" style="width: 100%; ">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="..." style="width: 100%; height: 127px; object-fit: cover;">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="..." style="width: 100%; height: 127px; object-fit: fill;">
                                 <div class="card-body">
-                                    <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                        <p class="card-title">₹<?php echo $row['price']; ?></p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title"><?php echo $row['brand']; ?></p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -229,27 +249,27 @@ include 'includes/common.php';
             </div>
         </div>
         <div class="container">
-            <h3 class="mt-5 text-center text-decoration-underline">Fruits & Vegetables</h3>
+            <h3 class="mt-5 text-center text-decoration-underline">Fruits and Vegetables</h3>
             <hr>
 
             <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
                 <?php
-                $query = "SELECT * FROM products LIMIT 5";
+                $query = "SELECT * FROM products WHERE category='Fruits and Vegetables' LIMIT 5";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
                 ?>
-                    <script>
+                    <!-- <script>
                         window.alert("No Products Found");
                         location.href = "products.php";
-                    </script>
+                    </script> -->
                 <?php
                 }
                 $row = mysqli_fetch_array($result);
                 ?>
                 <div class="col-md-6">
                     <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                        <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 416px; object-fit: cover;" alt="">
+                        <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 416px; object-fit: fill;" alt="">
                     </a>
                 </div>
                 <div class="col-md-6">
@@ -259,7 +279,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                         <?php
@@ -267,7 +287,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                     </div>
@@ -277,7 +297,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                         <?php
@@ -285,7 +305,7 @@ include 'includes/common.php';
                         ?>
                         <div class="col-md-6 p-3">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: cover;" alt="">
+                                <img src="<?php echo $row['img_path']; ?>" style="width: 100%; height: 195px; object-fit: fill;" alt="">
                             </a>
                         </div>
                     </div>
@@ -298,15 +318,15 @@ include 'includes/common.php';
 
             <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
                 <?php
-                $query = "SELECT * FROM products LIMIT 4";
+                $query = "SELECT * FROM products WHERE category='Snacks' LIMIT 4";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
                 ?>
-                    <script>
+                    <!-- <script>
                         window.alert("No Products Found");
                         location.href = "products.php";
-                    </script>
+                    </script> -->
                 <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
@@ -314,9 +334,16 @@ include 'includes/common.php';
                     <div class="col-md-3 mb-4 mt-4">
                         <div class="card" style="width: 100%;">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="..." style="width: 100%; height: 199px; object-fit: cover;">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="..." style="width: 100%; height: 199px; object-fit: fill;">
                                 <div class="card-body">
-                                    <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                        <p class="card-title">₹<?php echo $row['price']; ?></p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title"><?php echo $row['category']; ?></p>
+                                        <p class="card-title"><?php echo $row['brand']; ?></p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -332,15 +359,15 @@ include 'includes/common.php';
 
             <div class="row mb-3 mt-5 justify-content-evenly align-items-center">
                 <?php
-                $query = "SELECT * FROM products LIMIT 4";
+                $query = "SELECT * FROM products WHERE category='Kitchen Essentials' LIMIT 4";
                 $result = mysqli_query($con, $query) or die($mysqli_error($con));
                 $num = mysqli_num_rows($result);
                 if ($num == 0) {
                 ?>
-                    <script>
+                    <!-- <script>
                         window.alert("No Products Found");
                         location.href = "products.php";
-                    </script>
+                    </script> -->
                 <?php
                 }
                 while ($row = mysqli_fetch_array($result)) {
@@ -349,9 +376,15 @@ include 'includes/common.php';
                     <div class="col-md-2">
                         <div class="card kitchen" style="width: 100%; ">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
-                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="..." style="width: 100%; height: 127px; object-fit: cover;">
+                                <img src="<?php echo $row['img_path']; ?>" class="card-img-top" alt="..." style="width: 100%; height: 127px; object-fit: fill;">
                                 <div class="card-body">
-                                    <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title fw-bold"><?php echo $row['name']; ?></p>
+                                        <p class="card-title">₹<?php echo $row['price']; ?></p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title"><?php echo $row['brand']; ?></p>
+                                    </div>
                                 </div>
                             </a>
                         </div>

@@ -4,6 +4,28 @@ error_reporting(0);
 if (!(isset($_SESSION["email"]))) {
     header('location: index.php');
 }
+
+$user_id = $_SESSION['user_id'];
+if (isset($_POST['plusamount'])) {
+
+    $id = $_POST['plusamount'];
+    $query = "UPDATE cart_items SET amount=amount+1 WHERE product_id='$id' and user_id='$user_id' and status='Added To Cart'";
+    $res = mysqli_query($con, $query) or die($mysqli_error($con));
+}
+if (isset($_POST['minusamount'])) {
+
+    $id = $_POST['minusamount'];
+    $query = "SELECT  amount FROM cart_items WHERE product_id='$id' and user_id='$user_id' and status='Added To Cart'";
+    $result = mysqli_query($con, $query) or die($mysqli_error($con));
+    $r = mysqli_fetch_array($result);
+    if ($r['amount'] <= 1) {
+        $query = "DELETE FROM cart_items WHERE product_id='$id' and user_id='$user_id' and status='Added To Cart'";
+        $res = mysqli_query($con, $query) or die($mysqli_error($con));
+    } else {
+        $query = "UPDATE cart_items SET amount=amount-1 WHERE product_id='$id' and user_id='$user_id' and status='Added To Cart'";
+        $res = mysqli_query($con, $query) or die($mysqli_error($con));
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,28 +88,31 @@ if (!(isset($_SESSION["email"]))) {
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="<?php echo $row['img_path']; ?>" class="rounded-start" alt="..." style="width: 190px; height: 142px; object-fit: cover;">
+                                <img src="<?php echo $row['img_path']; ?>" class="rounded-start" alt="..." style="width: 190px; height: 142px; object-fit: fill;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                    <p class="mb-0"><?php echo $row['category']; ?></p>
                                     <div class="d-flex justify-content-between">
-                                        <p><?php echo $row['category']; ?></p>
+                                        <p><?php echo $row['brand']; ?></p>
                                         <p>₹<?php echo $row['price']; ?></p>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="" style="border-radius: 50%;">
-                                                    <!-- <span class="glyphicon glyphicon-minus"></span> --> -
-                                                </button>
-                                            </span>
-                                            <input type="text" min="1" max="100" id="quantity" name="quantity" class="me-2 ms-2 input-number" value="<?php echo $row['amount']; ?>" min="1" max="100" style="width: 20%;">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="" style="border-radius: 50%;">
-                                                    <!-- <span class="glyphicon glyphicon-plus"></span> -->+
-                                                </button>
-                                            </span>
+                                            <form action="ccart.php" method="POST" id="updateamount">
+                                                <span class="input-group-btn">
+                                                    <button type="submit" name="minusamount" form="updateamount" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" value="<?php echo $row['id']; ?>" style="border-radius: 50%;">
+                                                        <!-- <span class="glyphicon glyphicon-minus"></span> --> -
+                                                    </button>
+                                                </span>
+                                                <input type="text" min="1" max="100" id="quantity" name="quantity" class="me-2 ms-2 input-number" value="<?php echo $row['amount']; ?>" style="width: 20%;" readonly>
+                                                <span class="input-group-btn">
+                                                    <button type="submit" name="plusamount" form="updateamount" class="quantity-right-plus btn btn-success btn-number" data-type="plus" value="<?php echo $row['id']; ?>" style="border-radius: 50%;">
+                                                        <!-- <span class="glyphicon glyphicon-plus"></span> -->+
+                                                    </button>
+                                                </span>
+                                            </form>
                                         </div>
                                         <div>
                                             <form action="ccart_script.php" method="POST" id="removefromcart">
@@ -186,7 +211,7 @@ if (!(isset($_SESSION["email"]))) {
     }
     ?>
     </div>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
 
             var quantitiy = 0;
@@ -221,7 +246,7 @@ if (!(isset($_SESSION["email"]))) {
             });
 
         });
-    </script>
+    </script> -->
     <?php include 'includes/login-footer.php' ?>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
