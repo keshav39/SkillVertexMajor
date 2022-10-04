@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2022 at 08:54 PM
+-- Generation Time: Oct 04, 2022 at 07:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -36,6 +36,15 @@ CREATE TABLE `cart_items` (
   `order_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cart_items`
+--
+
+INSERT INTO `cart_items` (`id`, `product_id`, `user_id`, `amount`, `status`, `order_id`) VALUES
+(5, 1, 1, 5, 'Confirmed', '1/2022/10/04/10/42/48'),
+(6, 4, 1, 5, 'Confirmed', '1/2022/10/04/12/15/28'),
+(9, 4, 1, 5, 'Added to cart', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +67,7 @@ CREATE TABLE `contact` (
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
   `category` varchar(255) NOT NULL,
   `brand` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
@@ -70,7 +79,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `category`, `brand`, `price`, `img_path`) VALUES
-(1, 'Rice', 'The perceived characteristics of good-quality rice are uniformity of size and shape, whiteness, long and thin uncooked grains (i.e., long and slender), and round and fat cooked grains (i.e., bold cooked grains).', 'Staples', 'Uttam', 80, 'assets/img/products/rice.jpg');
+(1, 'Rice', 'The perceived characteristics of good-quality rice are uniformity of size and shape, whiteness, long and thin uncooked grains (i.e., long and slender), and round and fat cooked grains (i.e., bold cooked grains).', 'Staples', 'Uttam', 80, 'assets/img/products/rice.jpg'),
+(4, 'daal', 'dall', 'Fruits and Vegetables', 'rr', 88, 'assets/img/products/Moong Dal.jpg'),
+(6, 'hello', 'hello', 'Kitchen Essentials', 'C', 200, 'assets/img/products/Profile.jpg'),
+(7, 'Pepsi', 'Pepsi is a carbonated soft drink manufactured by PepsiCo.', 'Beverages', 'Cola', 40, 'assets/img/products/pepsi.jpg'),
+(8, 'hello', 'Pepsi is a carbonated soft drink manufactured by PepsiCo. Originally created and developed in 1893 by Caleb', 'Beverages', 'cc', 45, 'assets/img/products/pepsi.jpg'),
+(9, 'hhelllo', ' hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  hello  he', 'Snacks', 'Uttam', 100, 'assets/img/products/Moong Dal.jpg'),
+(10, 'tomatoes', 'The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as the tomato plant. The species originated in western South America', 'Fruits and Vegetables', 'Farm Fresh', 60, 'assets/img/products/tomatoes.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,7 +146,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -143,7 +158,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -49,7 +49,7 @@ if (isset($_POST['minusamount'])) {
 
     <div class="container-fluid pt-4 pb-4">
         <div class="row">
-            <div class="col-sm-7" style="background: #fff;">
+            <div class="col-md-7" style="background: #fff;">
                 <h1>Supermarket</h1>
                 <hr>
                 <div class="d-flex justify-content-between">
@@ -158,10 +158,10 @@ if (isset($_POST['minusamount'])) {
                 }
                 ?>
             </div>
-            <div class="col-sm-1" style="background: #fff; border-left: 5px solid grey;"></div>
-            <div class="col-sm-4" style="background: transparent;">
+            <div class="col-md-1" style="background: #fff; border-left: 5px solid grey;"></div>
+            <div class="col-md-4" style="background: transparent;">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <h1 class="mt-3">Price Details</h1>
                         <hr>
                         <div class="d-flex justify-content-between">
@@ -183,7 +183,7 @@ if (isset($_POST['minusamount'])) {
                     </div>
                 </div>
                 <div class="row mb-5">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
