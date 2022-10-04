@@ -372,7 +372,6 @@ include 'includes/common.php';
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
-                    <div class="col-md-1"></div>
                     <div class="col-md-2">
                         <div class="card kitchen" style="width: 100%; ">
                             <a href="product_desc.php?id=<?php echo $row['id']; ?>" class="text-decoration-none text-dark">
@@ -392,7 +391,6 @@ include 'includes/common.php';
                 <?php
                 }
                 ?>
-                <div class="col-md-1"></div>
             </div>
         </div>
         <div class="container">
