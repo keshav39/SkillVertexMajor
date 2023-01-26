@@ -211,47 +211,47 @@ if (isset($_POST['minusamount'])) {
     }
     ?>
     </div>
-    <!-- <script>
+    <<--script>
         $(document).ready(function() {
 
-            var quantitiy = 0;
-            $('.quantity-right-plus').click(function(e) {
+        var quantitiy = 0;
+        $('.quantity-right-plus').click(function(e) {
 
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
 
-                // If is not undefined
+        // If is not undefined
 
-                $('#quantity').val(quantity + 1);
+        $('#quantity').val(quantity + 1);
 
 
-                // Increment
-
-            });
-
-            $('.quantity-left-minus').click(function(e) {
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
-
-                // If is not undefined
-
-                // Increment
-                if (quantity > 0) {
-                    $('#quantity').val(quantity - 1);
-                }
-            });
+        // Increment
 
         });
-    </script> -->
-    <?php include 'includes/login-footer.php' ?>
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+        $('.quantity-left-minus').click(function(e) {
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
+
+        // If is not undefined
+
+        // Increment
+        if (quantity > 0) {
+        $('#quantity').val(quantity - 1);
+        }
+        });
+
+        });
+        </=script> -->
+        <?php include 'includes/login-footer.php' ?>
+
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
